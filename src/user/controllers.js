@@ -22,3 +22,10 @@ exports.getUsers = async (req, res) => {
    console.log(users)
    res.send(users) // Returning back to isomnia
 }
+
+
+exports.deleteUsers = async (req, res) => {
+ const users = await User.deleteOne()
+ res.send(users)
+
+}
