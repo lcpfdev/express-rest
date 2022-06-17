@@ -25,7 +25,25 @@ exports.getUsers = async (req, res) => {
 
 
 exports.deleteUsers = async (req, res) => {
- const users = await User.deleteOne()
- res.send(users)
+ const users = await User.deleteOne() // deleteOne mongoose method 
+ res.send(users) // Returns deleted to insomnia
 
 }
+
+exports.updateUsers = async (req, res) => {
+   const userObj = {
+      username: req.body.username, 
+      email: req.body.email,
+      password: req.body.password,
+   }
+
+ const users = await User.findOneAndUpdate(userObj)
+
+
+
+   res.send(users);
+
+
+}
+
+
