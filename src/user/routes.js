@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const userRouter = Router()
 
-const { hashPassword } = require("../db/middleware")
+const { hashPassword, checkPassword } = require("../db/middleware")
  
 const { createUser } = require("./controllers")
 
@@ -20,6 +20,6 @@ userRouter.delete("/user", deleteUsers)
 
 userRouter.put("/user", updateUsers)
 
-
+userRouter.post("/user/login", checkPassword)
 
 module.exports = userRouter;
